@@ -14,11 +14,11 @@ import {
   MenuItem,
   MenuItemGroup,
 } from "element-ui";
-// import startQiankun from "./qiankun";
+import startQiankun from "./qiankun";
 
 Vue.config.productionTip = false;
 
-// startQiankun();
+startQiankun();
 
 Vue.use(Container);
 Vue.use(Header);

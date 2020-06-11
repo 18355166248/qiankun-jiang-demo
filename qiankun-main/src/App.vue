@@ -5,25 +5,52 @@
         <el-header class="header">Smegalo</el-header>
         <el-container class="containerBox">
           <el-aside class="aside">
-            <el-menu default-active="1" class="el-menu-vertical-demo">
-              <el-menu-item index="1">
+            <el-menu
+              router
+              :default-active="path"
+              class="el-menu-vertical-demo"
+            >
+              <el-menu-item index="/">
                 <i class="el-icon-s-home"></i>
-                <router-link to="/" tag="span">主应用</router-link>
+                <span>主应用</span>
               </el-menu-item>
-              <el-menu-item index="2">
+              <el-menu-item index="/vue">
                 <i class="el-icon-menu"></i>
-                <router-link to="/vue" tag="span">Vue子应用</router-link>
+                <span>Vue子应用</span>
+              </el-menu-item>
+              <el-menu-item index="/vue/table">
+                <i class="el-icon-menu"></i>
+                <span>Vue子应用表格</span>
               </el-menu-item>
             </el-menu>
           </el-aside>
-          <el-main class="main">Main</el-main>
+          <el-main class="main">
+            <router-view />
+
+            <div id="childApp"></div>
+          </el-main>
         </el-container>
       </el-container>
     </div>
   </div>
 </template>
 
-<script></script>
+<script>
+export default {
+  data(em) {
+    return {
+      path: em.$route.path
+    }
+  },
+  watch: {
+    $route(newVal) {
+      this.path = newVal.path
+    }
+  },
+  created() {
+  }
+}
+</script>
 
 <style lang="scss" scoped>
 .app {

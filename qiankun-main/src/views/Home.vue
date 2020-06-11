@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    主页
+    乾坤主页
   </div>
 </template>
 
