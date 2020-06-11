@@ -5,23 +5,14 @@
         <el-header class="header">Smegalo</el-header>
         <el-container class="containerBox">
           <el-aside class="aside">
-            <el-menu
-              default-active="1"
-              class="el-menu-vertical-demo"
-            >
+            <el-menu default-active="1" class="el-menu-vertical-demo">
               <el-menu-item index="1">
                 <i class="el-icon-s-home"></i>
-                <router-link
-                  to="/"
-                  tag="span"
-                >主应用</router-link>
+                <router-link to="/" tag="span">主应用</router-link>
               </el-menu-item>
               <el-menu-item index="2">
                 <i class="el-icon-menu"></i>
-                <router-link
-                  to="/vue"
-                  tag="span"
-                >Vue子应用</router-link>
+                <router-link to="/vue" tag="span">Vue子应用</router-link>
               </el-menu-item>
             </el-menu>
           </el-aside>
@@ -32,9 +23,7 @@
   </div>
 </template>
 
-<script>
-
-</script>
+<script></script>
 
 <style lang="scss" scoped>
 .app {
