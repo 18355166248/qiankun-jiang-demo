@@ -13,6 +13,7 @@ import {
   Submenu,
   MenuItem,
   MenuItemGroup,
+  Button,
 } from "element-ui";
 import startQiankun from "./qiankun";
 
@@ -28,6 +29,7 @@ Vue.use(Menu);
 Vue.use(Submenu);
 Vue.use(MenuItem);
 Vue.use(MenuItemGroup);
+Vue.use(Button);
 
 new Vue({
   router,

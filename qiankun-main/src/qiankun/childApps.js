@@ -16,6 +16,9 @@ const childApps = [
     entry: "//localhost:10002",
     container: "#childApp",
     activeRule: "/vue",
+    props: {
+      age: "SMegalo",
+    },
   },
   // {
   //   name: 'StaticApp',

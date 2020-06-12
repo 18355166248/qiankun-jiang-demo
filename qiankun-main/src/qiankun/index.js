@@ -9,15 +9,14 @@ import {
 
 registerMicroApps(childApps, {
   // qiankun 生命周期钩子 - 加载前
-  beforeLoad: (app) => {
+  beforeLoad: () => {
     NProgress.start();
-    console.log("before load", app.name);
     return Promise.resolve();
   },
   // qiankun 生命周期钩子 - 挂载后
-  afterMount: (app) => {
+  afterMount: () => {
     NProgress.done();
-    console.log("after mount", app.name);
+    console.log("after mount");
     return Promise.resolve();
   },
 });
