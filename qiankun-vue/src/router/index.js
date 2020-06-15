@@ -12,6 +12,12 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "tableDemo"" */ '@/views/TableDemo.vue'),
   },
+  {
+    path: '/form',
+    name: 'FormDemo',
+    component: () =>
+      import(/* webpackChunkName: "tableDemo"" */ '@/views/FormDemo.vue'),
+  },
 ]
 
 export default routes

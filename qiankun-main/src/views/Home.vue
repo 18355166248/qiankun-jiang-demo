@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     乾坤主页
+    <div>主应用名: {{ initialState.name }}</div>
     <div>
       <el-Button size="mini" @click="updateApp" type="primary"
         >更新initGlobalState</el-Button
@@ -11,20 +12,24 @@
 </template>
 
 <script>
-import actions from '@/qiankun/share'
-
 export default {
   name: 'Home',
-  mounted() {
-    actions.onGlobalStateChange((state, prev) => {
-      // state: 变更后的状态; prev 变更前的状态
-      console.log('主应用', state)
-    })
+  data() {
+    return {
+      initialState: {},
+    }
+  },
+  created() {
+    this.$actions.onGlobalStateChange((state) => {
+      console.log('主应用 Home', state)
+
+      this.initialState = state
+    }, true)
   },
   methods: {
     updateApp() {
-      actions.setGlobalState({
-        path: 'update Main app',
+      this.$actions.setGlobalState({
+        name: '主应用更新主应用名',
       })
     },
   },

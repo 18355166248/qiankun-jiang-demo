@@ -1,6 +1,6 @@
 import { initGlobalState } from 'qiankun'
 
-const initialState = {
+export const initialState = {
   name: '主应用数据',
 }
 const actions = initGlobalState(initialState)

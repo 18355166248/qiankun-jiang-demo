@@ -3,7 +3,16 @@ import VueRouter from 'vue-router'
 import App from './App.vue'
 import routes from './router'
 import store from './store'
-import { Table, TableColumn, Button } from 'element-ui'
+import {
+  Table,
+  TableColumn,
+  Button,
+  Form,
+  FormItem,
+  Input,
+  Select,
+  Option,
+} from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 
 import './public-path'
@@ -11,6 +20,11 @@ import './public-path'
 Vue.use(Table)
 Vue.use(TableColumn)
 Vue.use(Button)
+Vue.use(Form)
+Vue.use(FormItem)
+Vue.use(Input)
+Vue.use(Select)
+Vue.use(Option)
 
 Vue.config.productionTip = false
 
@@ -20,7 +34,7 @@ let instance, router
 
 // 执行渲染
 // 两种情况 1.在qiankun中执行  2.单独运行
-function render(props) {
+function render() {
   router = new VueRouter({
     mode: 'history',
     // 运行在主应用中时，添加路由命名空间 /vue
@@ -33,10 +47,6 @@ function render(props) {
     store,
     render: (h) => h(App),
   }).$mount('#app')
-
-  console.log(props)
-
-  Vue.prototype.$parentProps = props
 }
 
 if (!window.__POWERED_BY_QIANKUN__) {
@@ -58,10 +68,13 @@ export async function mount(props) {
   props.onGlobalStateChange((state) => {
     // state: 变更后的状态; prev 变更前的状态
     console.log('vue子应用', state)
-    render(props, state)
   })
 
-  render(props)
+  console.log('props', props)
+
+  Vue.prototype.$parentProps = props
+
+  render()
 }
 
 /**

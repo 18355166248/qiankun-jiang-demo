@@ -2,7 +2,10 @@
   <div class="app">
     <div class="home">
       <el-container>
-        <el-header class="header">Smegalo</el-header>
+        <el-header class="header">
+          <span>Smegalo</span>
+          <span style="margin-left: 20px;">{{ initialState.name }}</span>
+        </el-header>
         <el-container class="containerBox">
           <el-aside class="aside">
             <el-menu
@@ -14,14 +17,20 @@
                 <i class="el-icon-s-home"></i>
                 <span>主应用</span>
               </el-menu-item>
-              <el-menu-item index="/vue">
-                <i class="el-icon-menu"></i>
-                <span>Vue子应用</span>
-              </el-menu-item>
-              <el-menu-item index="/vue/table">
-                <i class="el-icon-menu"></i>
-                <span>Vue子应用表格</span>
-              </el-menu-item>
+              <el-submenu v-for="sub of menu" :key="sub.id" :index="sub.id">
+                <template slot="title">
+                  <i :class="sub.icon"></i>
+                  <span class="menu-sub-title">{{ sub.title }}</span>
+                </template>
+                <el-menu-item
+                  v-for="item of sub.children"
+                  :key="item.id"
+                  :index="item.routerBase"
+                >
+                  <i :class="item.icon"></i>
+                  <span class="menu-item-title">{{ item.title }}</span>
+                </el-menu-item>
+              </el-submenu>
             </el-menu>
           </el-aside>
           <el-main class="main">
@@ -36,18 +45,33 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
   data(em) {
     return {
       path: em.$route.path,
+      initialState: {},
     }
+  },
+  computed: {
+    ...mapState(['menu']),
   },
   watch: {
     $route(newVal) {
       this.path = newVal.path
     },
+    menu(newVal) {
+      console.log(newVal)
+    },
   },
-  created() {},
+  created() {
+    this.$actions.onGlobalStateChange((state) => {
+      console.log('主应用 App', state)
+      this.initialState = state
+    }, true)
+  },
+  methods: {},
 }
 </script>
 

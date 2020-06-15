@@ -1,25 +1,25 @@
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
-import { childApps } from './childApps'
 import {
   registerMicroApps,
   start,
   addGlobalUncaughtErrorHandler,
 } from 'qiankun'
 
-registerMicroApps(childApps, {
-  // qiankun 生命周期钩子 - 加载前
-  beforeLoad: () => {
-    NProgress.start()
-    return Promise.resolve()
-  },
-  // qiankun 生命周期钩子 - 挂载后
-  afterMount: () => {
-    NProgress.done()
-    console.log('after mount')
-    return Promise.resolve()
-  },
-})
+function registerQiankun(childApps) {
+  registerMicroApps(childApps, {
+    // qiankun 生命周期钩子 - 加载前
+    beforeLoad: () => {
+      NProgress.start()
+      return Promise.resolve()
+    },
+    // qiankun 生命周期钩子 - 挂载后
+    afterMount: () => {
+      NProgress.done()
+      return Promise.resolve()
+    },
+  })
+}
 
 addGlobalUncaughtErrorHandler((event) => {
   console.log('异常处理', event)
@@ -31,4 +31,4 @@ addGlobalUncaughtErrorHandler((event) => {
   }
 })
 
-export default start
+export { start, registerQiankun }
