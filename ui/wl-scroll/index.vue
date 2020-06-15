@@ -6,8 +6,8 @@
 
 <script>
 export default {
-  name: "wl-scroll"
-};
+  name: 'wl-scroll',
+}
 </script>
 
 <style lang="scss">

@@ -1,4 +1,3 @@
-
 /**
  * 关闭视图函数
  * @param {*} layout 所要关闭的管理视图的对象
@@ -6,7 +5,7 @@
  */
 function closeLayout(layout, opend) {
   for (let i in layout) {
-    layout[i] = false;
+    layout[i] = false
   }
   opend && (layout[opend] = true)
 }
