@@ -28,10 +28,6 @@ Vue.config.productionTip = false
 
 Vue.prototype.$actions = actions
 
-actions.onGlobalStateChange((state) => {
-  console.log('主应用 main.js', state)
-})
-
 // 异步加载子应用
 
 // startQiankun()
