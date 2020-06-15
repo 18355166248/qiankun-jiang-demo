@@ -40,15 +40,15 @@ export default {
   data(em) {
     return {
       path: em.$route.path,
-    };
+    }
   },
   watch: {
     $route(newVal) {
-      this.path = newVal.path;
+      this.path = newVal.path
     },
   },
   created() {},
-};
+}
 </script>
 
 <style lang="scss" scoped>

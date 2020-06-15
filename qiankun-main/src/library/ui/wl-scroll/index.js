@@ -1,7 +1,7 @@
-import WlScroll from "./index.vue";
+import WlScroll from './index.vue'
 
 WlScroll.install = function (Vue) {
-  Vue.component(WlScroll.name, WlScroll);
-};
+  Vue.component(WlScroll.name, WlScroll)
+}
 
-export default WlScroll;
+export default WlScroll

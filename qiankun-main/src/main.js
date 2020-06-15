@@ -1,9 +1,9 @@
-import Vue from "vue";
-import App from "./App.vue";
-import router from "./router";
-import store from "./store";
-import "assets/css/normalize.css";
-import "assets/css/common.css";
+import Vue from 'vue'
+import App from './App.vue'
+import router from './router'
+import store from './store'
+import 'assets/css/normalize.css'
+import 'assets/css/common.css'
 import {
   Container,
   Header,
@@ -14,25 +14,25 @@ import {
   MenuItem,
   MenuItemGroup,
   Button,
-} from "element-ui";
-import startQiankun from "./qiankun";
+} from 'element-ui'
+import startQiankun from './qiankun'
 
-Vue.config.productionTip = false;
+Vue.config.productionTip = false
 
-startQiankun();
+startQiankun()
 
-Vue.use(Container);
-Vue.use(Header);
-Vue.use(Aside);
-Vue.use(Main);
-Vue.use(Menu);
-Vue.use(Submenu);
-Vue.use(MenuItem);
-Vue.use(MenuItemGroup);
-Vue.use(Button);
+Vue.use(Container)
+Vue.use(Header)
+Vue.use(Aside)
+Vue.use(Main)
+Vue.use(Menu)
+Vue.use(Submenu)
+Vue.use(MenuItem)
+Vue.use(MenuItemGroup)
+Vue.use(Button)
 
 new Vue({
   router,
   store,
   render: (h) => h(App),
-}).$mount("#main-app");
+}).$mount('#main-app')

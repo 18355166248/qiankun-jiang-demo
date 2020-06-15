@@ -12,12 +12,12 @@ const childApps = [
   //   activeRule: '/react',
   // },
   {
-    name: "VueApp",
-    entry: "//localhost:10002",
-    container: "#childApp",
-    activeRule: "/vue",
+    name: 'VueApp',
+    entry: '//localhost:10002',
+    container: '#childApp',
+    activeRule: '/vue',
     props: {
-      age: "SMegalo",
+      age: 'SMegalo',
     },
   },
   // {
@@ -26,6 +26,6 @@ const childApps = [
   //   container: '#childApp',
   //   activeRule: '/static',
   // },
-];
+]
 
-export { childApps };
+export { childApps }

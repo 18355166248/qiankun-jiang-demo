@@ -10,7 +10,7 @@
  * @param {*} value 值
  */
 function sessionSet(key, value) {
-  sessionStorage.setItem(key, JSON.stringify(value));
+  sessionStorage.setItem(key, JSON.stringify(value))
 }
 
 /**
@@ -18,11 +18,11 @@ function sessionSet(key, value) {
  * @param {*} key 键名
  */
 function sessionGet(key) {
-  let _data = sessionStorage.getItem(key);
+  let _data = sessionStorage.getItem(key)
   try {
     return JSON.parse(_data)
   } catch (e) {
-    return _data;
+    return _data
   }
 }
 
@@ -38,7 +38,7 @@ function sessionDel(key) {
  * 会话存储-删处全部
  */
 function sessionClear() {
-  sessionStorage.clear();
+  sessionStorage.clear()
 }
 
 /**
@@ -47,7 +47,7 @@ function sessionClear() {
  * @param {*} value 值
  */
 function localSet(key, value) {
-  localStorage.setItem(key, JSON.stringify(value));
+  localStorage.setItem(key, JSON.stringify(value))
 }
 
 /**
@@ -55,11 +55,11 @@ function localSet(key, value) {
  * @param {*} key 键名
  */
 function localGet(key) {
-  let _data = localStorage.getItem(key);
+  let _data = localStorage.getItem(key)
   try {
     return JSON.parse(_data)
   } catch (e) {
-    return _data;
+    return _data
   }
 }
 
@@ -78,5 +78,5 @@ export {
   sessionClear,
   localSet,
   localGet,
-  localDel
+  localDel,
 }

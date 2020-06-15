@@ -21,22 +21,22 @@
 
 <script>
 export default {
-  name: "wl-fadein",
+  name: 'wl-fadein',
   props: {
     // 是否显示
     show: {
       type: Boolean,
-      default: false
+      default: false,
     },
     // 是否使用scroll组件
     useScroll: {
       type: Boolean,
-      default: true
+      default: true,
     },
     // 自定义main的class
-    ftBodyClass: [String, Function]
-  }
-};
+    ftBodyClass: [String, Function],
+  },
+}
 </script>
 
 <style lang="scss">

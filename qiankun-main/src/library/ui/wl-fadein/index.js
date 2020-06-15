@@ -1,7 +1,7 @@
-import WlFadein from "./index.vue";
+import WlFadein from './index.vue'
 
 WlFadein.install = function (Vue) {
-  Vue.component(WlFadein.name, WlFadein);
-};
+  Vue.component(WlFadein.name, WlFadein)
+}
 
-export default WlFadein;
+export default WlFadein

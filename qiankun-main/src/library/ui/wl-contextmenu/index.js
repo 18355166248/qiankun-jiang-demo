@@ -1,7 +1,7 @@
-import WlContextmenu from "./index.vue";
+import WlContextmenu from './index.vue'
 
 WlContextmenu.install = function (Vue) {
-  Vue.component(WlContextmenu.name, WlContextmenu);
-};
+  Vue.component(WlContextmenu.name, WlContextmenu)
+}
 
-export default WlContextmenu;
+export default WlContextmenu

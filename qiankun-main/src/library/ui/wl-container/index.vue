@@ -8,8 +8,8 @@
 
 <script>
 export default {
-  name: "wl-container"
-};
+  name: 'wl-container',
+}
 </script>
 
 <style>
