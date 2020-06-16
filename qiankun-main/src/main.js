@@ -15,6 +15,8 @@ import {
   MenuItemGroup,
   Button,
   Message,
+  Dialog,
+  Loading,
 } from 'element-ui'
 import { registerQiankun } from './qiankun'
 import { start, setDefaultMountApp, runAfterFirstMounted } from 'qiankun'
@@ -41,6 +43,8 @@ Vue.use(Submenu)
 Vue.use(MenuItem)
 Vue.use(MenuItemGroup)
 Vue.use(Button)
+Vue.use(Dialog)
+Vue.use(Loading)
 
 new Vue({
   router,
@@ -79,17 +83,24 @@ getAppConfig()
         defaultApp = item.routerBase
       }
 
-      registerQiankun(childApps)
-
       if (!defaultApp) defaultApp = data[0].routerBase
+    })
 
-      // setDefaultMountApp(defaultApp)
+    registerQiankun(childApps)
 
-      runAfterFirstMounted((app) => {
-        console.log('第一个子应用加载完毕', app)
-      })
+    // setDefaultMountApp(defaultApp)
 
-      start()
+    runAfterFirstMounted((app) => {
+      console.log('第一个子应用加载完毕', app)
+    })
+
+    start({
+      getTemplate(tpl) {
+        return tpl.replace(
+          '<script src="http://api.map.baidu.com/api?v=3.0&ak=MjiM72HyPvFibsfX3gMeIBqwNDxh57YK"></script>',
+          ''
+        )
+      },
     })
   })
   .catch()

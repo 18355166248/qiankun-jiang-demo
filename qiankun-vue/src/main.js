@@ -34,9 +34,9 @@ let instance, router
 
 // 执行渲染
 // 两种情况 1.在qiankun中执行  2.单独运行
-function render() {
+function render(props) {
   router = new VueRouter({
-    mode: 'history',
+    mode: props.path ? 'abstract' : 'history',
     // 运行在主应用中时，添加路由命名空间 /vue
     base: window.__POWERED_BY_QIANKUN__ ? '/vue' : '/',
     routes,
@@ -47,6 +47,10 @@ function render() {
     store,
     render: (h) => h(App),
   }).$mount('#app')
+
+  if (props.path) {
+    router.push(props.path)
+  }
 }
 
 if (!window.__POWERED_BY_QIANKUN__) {
@@ -70,11 +74,11 @@ export async function mount(props) {
     console.log('vue子应用', state)
   })
 
-  console.log('props', props)
+  console.log('vueMount props', props)
 
   Vue.prototype.$parentProps = props
 
-  render()
+  render(props)
 }
 
 /**
