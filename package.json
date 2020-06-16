@@ -10,6 +10,8 @@
     "start:main": "cd qiankun-main && yarn serve",
     "install:vue": "cd qiankun-vue && yarn",
     "start:vue": "cd qiankun-vue && yarn serve",
+    "install:react": "cd qiankun-react && yarn",
+    "start:react": "cd qiankun-react && yarn start",
     "prettier": "prettier -c --write **/*"
   },
   "keywords": [],

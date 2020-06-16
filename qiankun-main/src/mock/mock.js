@@ -24,6 +24,30 @@ const appConfig = [
       },
     ],
   },
+  {
+    id: '2',
+    title: 'React子组件',
+    icon: 'el-icon-monitor',
+    module: 'react',
+    devEntry: '//localhost:10003',
+    depEntry: 'http://ui.mfe.wlui.com.cn/',
+    routerBase: '/react',
+    container: '#childApp',
+    children: [
+      {
+        id: '1-1',
+        title: 'Home',
+        routerBase: '/react',
+        icon: 'el-icon-document-copy',
+      },
+      {
+        id: '1-2',
+        title: 'About',
+        routerBase: '/react/about',
+        icon: 'el-icon-document-copy',
+      },
+    ],
+  },
 ]
 
 export default [
