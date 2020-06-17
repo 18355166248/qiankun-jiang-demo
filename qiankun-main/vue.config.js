@@ -1,4 +1,7 @@
 const path = require('path')
+const getRepoInfo = require('git-repo-info')
+
+process.env.VUE_APP_REPO_INFO = JSON.stringify(getRepoInfo())
 
 module.exports = {
   configureWebpack: {

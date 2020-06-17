@@ -23,6 +23,13 @@ import { start, setDefaultMountApp, runAfterFirstMounted } from 'qiankun'
 import { mockXHR } from '@/mock'
 import { getAppConfig } from '@/api/menu'
 import actions from '@/qiankun/share'
+const { name } = require('../package.json')
+
+const repoInfo = JSON.parse(process.env.VUE_APP_REPO_INFO)
+
+console.groupCollapsed(name)
+console.log('%c commitMessage: ' + repoInfo.commitMessage, 'color: blue')
+console.groupEnd()
 
 mockXHR()
 
