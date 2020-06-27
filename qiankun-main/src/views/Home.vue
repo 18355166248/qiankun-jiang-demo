@@ -87,7 +87,7 @@ export default {
             theme: 'his',
             USER_ID: 1619,
             MEDICAL_INSTITUTION_ID: 800,
-           },
+          },
         })
       }, 20)
     },
