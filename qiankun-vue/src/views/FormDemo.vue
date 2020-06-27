@@ -31,18 +31,20 @@ export default {
     }
   },
   created() {
-    const {
-      onGlobalStateChange,
-      initialState,
-      setGlobalState,
-    } = this.$parentProps
+    if (window.__POWERED_BY_QIANKUN__) {
+      const {
+        onGlobalStateChange,
+        initialState,
+        setGlobalState,
+      } = this.$parentProps
 
-    this.parentAppInitialState = initialState
-    this.setGlobalState = setGlobalState
+      this.parentAppInitialState = initialState
+      this.setGlobalState = setGlobalState
 
-    onGlobalStateChange((state) => {
-      this.parentAppInitialState = state
-    }, true)
+      onGlobalStateChange((state) => {
+        this.parentAppInitialState = state
+      }, true)
+    }
   },
   methods: {
     updateMain() {

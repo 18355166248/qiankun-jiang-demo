@@ -16,6 +16,10 @@ const routes = [
     name: 'Home',
     component: Home,
   },
+  {
+    path: '/workbench/*',
+    name: 'his',
+  },
 ]
 
 const router = new VueRouter({

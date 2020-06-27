@@ -83,6 +83,7 @@ getAppConfig()
         props: {
           age: 'SMegalo',
           routes: item.children,
+          baseParams: item.baseParams,
         },
       })
 

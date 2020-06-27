@@ -36,19 +36,21 @@ let instance, router
 // 两种情况 1.在qiankun中执行  2.单独运行
 function render(props) {
   router = new VueRouter({
-    mode: props.path ? 'abstract' : 'history',
+    mode: props && props.path ? 'abstract' : 'history',
     // 运行在主应用中时，添加路由命名空间 /vue
     base: window.__POWERED_BY_QIANKUN__ ? '/vue' : '/',
     routes,
   })
 
+  const container = props && props.container
+
   instance = new Vue({
     router,
     store,
     render: (h) => h(App),
-  }).$mount('#app')
+  }).$mount(container ? container.querySelector('#app') : '#app')
 
-  if (props.path) {
+  if (props && props.path) {
     router.push(props.path)
   }
 }

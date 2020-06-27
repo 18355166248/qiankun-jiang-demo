@@ -17,6 +17,14 @@
       >弹出子应用表单弹窗</el-button
     >
 
+    <el-button
+      class="updateChildApp"
+      @click="updateScrmChildApp('/couponDetail?couponDefinitionId=77')"
+      size="mini"
+      type="success"
+      >弹出Scrm子应用表单弹窗</el-button
+    >
+
     <el-dialog
       title="子应用弹窗"
       :visible.sync="dialogVisible"
@@ -45,7 +53,7 @@ export default {
   created() {},
   mounted() {},
   methods: {
-    updateChildApp(path) {
+    updateChildApp(path, url) {
       this.dialogVisible = true
 
       setTimeout(() => {
@@ -60,6 +68,28 @@ export default {
     handleClose() {
       this.microApp.unmount()
       this.dialogVisible = false
+    },
+    updateScrmChildApp(path) {
+      this.dialogVisible = true
+
+      console.log('path', path)
+
+      setTimeout(() => {
+        this.microApp = loadMicroApp({
+          name: 'scrm_vue',
+          // entry: 'http://uat.scrm.laoganma.fun',
+          entry: '/scrm',
+          container: this.$refs.modalForm,
+          props: {
+            path,
+            token: '27169f2421f3436392c8a9ccab719333',
+            mode: 'abstract',
+            theme: 'his',
+            USER_ID: 1619,
+            MEDICAL_INSTITUTION_ID: 800,
+           },
+        })
+      }, 20)
     },
   },
   components: {},
