@@ -25,6 +25,14 @@
       >弹出Scrm子应用表单弹窗</el-button
     >
 
+    <el-button
+      class="updateChildApp"
+      @click="updateHISChildApp"
+      size="mini"
+      type="success"
+      >弹出HIS子应用表单弹窗</el-button
+    >
+
     <el-dialog
       title="子应用弹窗"
       :visible.sync="dialogVisible"
@@ -87,6 +95,31 @@ export default {
             theme: 'his',
             USER_ID: 1619,
             MEDICAL_INSTITUTION_ID: 800,
+          },
+        })
+      }, 20)
+    },
+    updateHISChildApp() {
+      this.dialogVisible = true
+
+      setTimeout(() => {
+        this.microApp = loadMicroApp({
+          name: 'his',
+          entry: 'http://10.101.11.64:7001/',
+          container: this.$refs.modalForm,
+          props: {
+            baseParams: {
+              TOKEN: '5084f060fc0946429a292662c4cc4e88',
+              REFRESH_TOKEN: 'b2c9fb99114e4dc8b8f01444a11ac3f0',
+              USER_ID: 1619,
+              MEDICAL_INSTITUTION_ID: 798,
+              tenantId: 481,
+              topParentId: 797,
+              institutionChainType: 2,
+            },
+            businessParams: {
+              path: 'appointmentView',
+            },
           },
         })
       }, 20)
