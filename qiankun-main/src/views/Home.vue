@@ -33,6 +33,14 @@
       >弹出HIS子应用表单弹窗</el-button
     >
 
+    <el-button
+      class="updateChildApp"
+      @click="updateHISVueChildApp"
+      size="mini"
+      type="success"
+      >弹出HIS_mirco_vue子应用弹窗</el-button
+    >
+
     <el-dialog
       title="子应用弹窗"
       :visible.sync="dialogVisible"
@@ -104,12 +112,13 @@ export default {
 
       setTimeout(() => {
         this.microApp = loadMicroApp({
-          name: 'his',
-          entry: 'http://10.101.11.64:7001/',
+          name: 'dpms-web-[name]',
+          entry: 'http://uat-tx.dental.his.laoganma.fun/', //http://192.168.1.7:7001/
+          // entry: 'http://192.168.1.7:7001/',
           container: this.$refs.modalForm,
           props: {
             baseParams: {
-              TOKEN: '5084f060fc0946429a292662c4cc4e88',
+              TOKEN: 'c5c3c99039f447a080349401ce98f928',
               REFRESH_TOKEN: 'b2c9fb99114e4dc8b8f01444a11ac3f0',
               USER_ID: 1619,
               MEDICAL_INSTITUTION_ID: 798,
@@ -119,6 +128,40 @@ export default {
             },
             businessParams: {
               path: 'appointmentView',
+            },
+          },
+        })
+      }, 20)
+    },
+    updateHISVueChildApp() {
+      this.dialogVisible = true
+
+      setTimeout(() => {
+        this.microApp = loadMicroApp({
+          name: 'dpms-web-mirco-vue',
+          // entry: 'http://dev-tx.dental.his.laoganma.fun/dpms_mirco_vue/',
+          entry: '//localhost:9011/dpms_mirco_vue/',
+          container: this.$refs.modalForm,
+          props: {
+            baseParams: {
+              mode: 1,
+              pathId: 104,
+              theme: 'his',
+            },
+
+            systemParams: {
+              TOKEN: '2fb28f46411d43378d190f864fb6b233',
+              USER_ID: 3232,
+              MEDICAL_INSTITUTION_ID: 809,
+              tenantId: 483,
+              topParentId: 808,
+              institutionChainType: 2,
+              medicalInstitution: {
+                institutionTypeId: 2,
+              },
+              staff: {
+                belongsInstitutionId: 1043,
+              },
             },
           },
         })

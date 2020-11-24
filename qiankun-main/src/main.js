@@ -19,13 +19,15 @@ import {
   Loading,
 } from 'element-ui'
 import { registerQiankun } from './qiankun'
-import { start, setDefaultMountApp, runAfterFirstMounted } from 'qiankun'
+import { start, runAfterFirstMounted, setDefaultMountApp } from 'qiankun'
 import { mockXHR } from '@/mock'
 import { getAppConfig } from '@/api/menu'
 import actions from '@/qiankun/share'
 const { name } = require('../package.json')
 
 const repoInfo = JSON.parse(process.env.VUE_APP_REPO_INFO)
+
+localStorage.setItem('ACTIVATED_UI_THEME', 1)
 
 console.groupCollapsed(name)
 console.log('%c commitMessage: ' + repoInfo.commitMessage, 'color: blue')
@@ -84,6 +86,7 @@ getAppConfig()
           age: 'SMegalo',
           routes: item.children,
           baseParams: item.baseParams,
+          systemParams: item.systemParams,
         },
       })
 
@@ -104,10 +107,15 @@ getAppConfig()
 
     start({
       getTemplate(tpl) {
-        return tpl.replace(
-          '<script src="http://api.map.baidu.com/api?v=3.0&ak=MjiM72HyPvFibsfX3gMeIBqwNDxh57YK"></script>',
-          ''
-        )
+        return tpl
+          .replace(
+            /<script src=https:\/\/hm\.baidu\.com\/hm\.js(.*)><\/script>/,
+            ''
+          )
+          .replace(
+            '<script src="https://api.map.baidu.com/api?v=3.0&ak=MjiM72HyPvFibsfX3gMeIBqwNDxh57YK"></script>',
+            ''
+          )
       },
     })
   })

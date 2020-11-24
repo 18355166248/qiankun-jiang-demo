@@ -5,6 +5,14 @@
         <el-header class="header">
           <span>Smegalo</span>
           <span style="margin-left: 20px;">{{ initialState.name }}</span>
+          <el-button
+            type="primary"
+            style="margin-left: 20px;"
+            size="small"
+            @click="actionChangeState"
+          >
+            通讯子应用
+          </el-button>
         </el-header>
         <el-container class="containerBox">
           <el-aside class="aside">
@@ -71,7 +79,11 @@ export default {
       this.initialState = state
     }, true)
   },
-  methods: {},
+  methods: {
+    actionChangeState() {
+      this.$actions.setGlobalState({ saveAppointmentSuccess: true })
+    },
+  },
 }
 </script>
 <style lang="scss">
